@@ -20,3 +20,16 @@ Feature: Login de Usuario
     Given estoy en la pagina de login
     When ingreso credenciales desde CSV con indice 0
     Then deberia ver el mensaje de bienvenida
+
+  @login_fallido_csv
+  Scenario Outline: Login fallido con datos de CSV
+    Given estoy en la pagina de login
+    When ingreso credenciales invalidas desde CSV con indice <indice>
+    Then deberia ver un mensaje de error
+    And el mensaje de error deberia ser "<mensaje_esperado>"
+
+    Examples:
+      | indice | mensaje_esperado               |
+      | 0      | Mensaje de campos requeridos   |
+      | 1      | Email invalido                 |
+      | 2      | Credenciales incorrectas       |

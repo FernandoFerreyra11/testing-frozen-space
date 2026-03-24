@@ -1,0 +1,4 @@
+type;email;password;errorMessage
+vacio; ; ;Mensaje de campos requeridos
+formato_invalido;email_sin_arroba;password123;Email invalido
+bad_password;feliguerrero@frozenspace.com;wrong_pass;Credenciales incorrectas

@@ -41,6 +41,19 @@ def step_ingreso_credenciales_csv(context, index):
     context.login_page.click_login()
 
 
+@when('ingreso credenciales invalidas desde CSV con indice {index:d}')
+def step_ingreso_credenciales_invalidas_csv(context, index):
+    """Cuando ingreso credenciales invalidas desde el CSV de errores"""
+    user = get_user_by_index(context.invalid_users, index)
+    # Usar .get(key, "") para evitar errores si la celda esta vacia
+    email = user.get("email", "").strip()
+    password = user.get("password", "").strip()
+    
+    context.login_page.enter_username(email)
+    context.login_page.enter_password(password)
+    context.login_page.click_login()
+
+
 @then('deberia ver el mensaje de bienvenida')
 def step_ver_mensaje_bienvenida(context):
     """Entonces deberia ver el mensaje de bienvenida"""
@@ -49,4 +62,10 @@ def step_ver_mensaje_bienvenida(context):
 @then('deberia ver un mensaje de error')
 def step_ver_mensaje_error(context):
     """Entonces deberia ver un mensaje de error"""
-    assert context.login_page.is_error_message_visible(), "Mensaje de error no visible"
+    assert context.login_page.get_error_message() != "", "Mensaje de error no visible o vacio"
+
+@then('el mensaje de error deberia ser "{expected_error}"')
+def step_ver_mensaje_error_especifico(context, expected_error):
+    """Entonces el mensaje de error deberia ser el esperado"""
+    actual_error = context.login_page.get_error_message()
+    assert expected_error in actual_error, f"Error esperado: '{expected_error}', se obtuvo: '{actual_error}'"

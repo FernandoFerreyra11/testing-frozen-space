@@ -52,3 +52,11 @@ class LoginPage:
             return element.is_displayed()
         except:
             return False
+
+    def get_error_message(self):
+        """Obtener el texto del mensaje de error"""
+        try:
+            element = self.wait.until(EC.visibility_of_element_located(self.error_message))
+            return element.text
+        except:
+            return ""
