@@ -32,6 +32,9 @@ def before_all(context):
     invalid_csv_path = os.path.join(os.path.dirname(__file__), "invalid_users.csv")
     context.invalid_users = read_users_csv(invalid_csv_path)
 
+    register_csv_path = os.path.join(os.path.dirname(__file__), "register_users.csv")
+    context.register_users = read_users_csv(register_csv_path)
+
 
 def after_all(context):
     """Teardown que se ejecuta despues de todas las pruebas"""

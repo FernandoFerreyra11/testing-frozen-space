@@ -1,0 +1,4 @@
+type;full_name;email;password
+exitoso;Juan Perez;juan_perez_test@frozenspace.com;Testing123!
+error_email;Maria Garcia;email_invalido;Maria123!
+user_existente;Felipe Guerrero;feliguerrero@frozenspace.com;Testing123!
