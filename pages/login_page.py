@@ -3,22 +3,22 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage:
-    """Page Object para la página de login"""
+    """Page Object para la pagina de login"""
 
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
         # Localizadores
-        self.username_field = (By.ID, "username")
-        self.password_field = (By.ID, "password")
-        self.login_button = (By.ID, "login-button")
-        self.welcome_message = (By.ID, "welcome-message")
+        self.username_field = (By.ID, "auth-email")
+        self.password_field = (By.ID, "auth-password")
+        self.login_button = (By.ID, "auth-submit")
+        self.welcome_message = (By.CSS_SELECTOR, "#hero > div.hero__content > h1 > span:nth-child(1)")
         self.error_message = (By.ID, "error-message")
 
     def navigate_to_login(self):
-        """Navegar a la página de login"""
-        self.driver.get("https://example.com/login")  # Cambia por tu URL real
+        """Navegar a la pagina de login"""
+        self.driver.get("http://localhost:5173/#/login")  # Cambia por tu URL real
 
     def enter_username(self, username):
         """Ingresar nombre de usuario"""

@@ -27,8 +27,13 @@ class DriverFactory:
             options.add_argument("--disable-dev-shm-usage")
             options.add_argument("--disable-gpu")
 
+            driver_path = ChromeDriverManager().install()
+            # Fix: webdriver-manager puede devolver ruta incorrecta, apuntar al .exe real
+            driver_dir = os.path.dirname(driver_path)
+            chromedriver_path = os.path.join(driver_dir, "chromedriver.exe")
+
             return webdriver.Chrome(
-                service=ChromeService(ChromeDriverManager().install()),
+                service=ChromeService(chromedriver_path),
                 options=options
             )
 

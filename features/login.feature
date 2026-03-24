@@ -3,14 +3,20 @@ Feature: Login de Usuario
   Quiero poder iniciar sesión
   Para acceder a mi cuenta
 
-  @login
+  @login_exitoso
   Scenario: Login exitoso
-    Given estoy en la página de login
-    When ingreso credenciales válidas
-    Then debería ver el mensaje de bienvenida
+    Given estoy en la pagina de login
+    When ingreso credenciales validas
+    Then deberia ver el mensaje de bienvenida
 
-  @login
+  @login_fallido
   Scenario: Login fallido con credenciales incorrectas
-    Given estoy en la página de login
-    When ingreso credenciales inválidas
-    Then debería ver un mensaje de error
+    Given estoy en la pagina de login
+    When ingreso credenciales invalidas
+    Then deberia ver un mensaje de error
+
+  @login_csv
+  Scenario: Login exitoso con credenciales del CSV
+    Given estoy en la pagina de login
+    When ingreso credenciales desde CSV con indice 0
+    Then deberia ver el mensaje de bienvenida
