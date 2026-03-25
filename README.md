@@ -4,23 +4,31 @@ Este proyecto proporciona una estructura completa para pruebas automatizadas de 
 
 ## Estructura del Proyecto
 
-```
+```text
 Testing Frozen Space/
 ├── features/                    # Archivos .feature con escenarios Gherkin
 │   ├── steps/                   # Implementaciones de los pasos en Python
 │   │   ├── __init__.py
-│   │   └── steps.py             # Definiciones de pasos
-│   ├── environment.py           # Configuración de setup/teardown
-│   └── login.feature            # Ejemplo de feature
+│   │   ├── steps.py             # Definiciones de pasos (Login y Registro
+│   │   └── blog_steps.py        # Definiciones de pasos (Blog)
+│   ├── environment.py           # Configuración de setup/teardown y reportes
+│   ├── login.feature            # Feature de inicio de sesión
+│   ├── register.feature         # Feature de registro de usuario
+│   └── blog.feature             # Feature de creación de posts en el blog
 ├── pages/                       # Page Object Model
 │   ├── __init__.py
-│   └── login_page.py            # Clase para la página de login
+│   ├── login_page.py            # Clase para la página de login
+│   ├── register_page.py         # Clase para la página de registro
+│   └── blog_page.py             # Clase para la página del blog
 ├── utils/                       # Utilidades y helpers
 │   ├── __init__.py
+│   ├── csv_utils.py             # Herramienta para leer datos de prueba en CSV
 │   └── driver_factory.py        # Factory para crear instancias de WebDriver
-├── drivers/                     # Drivers de navegador (descargados automáticamente)
+├── drivers/                     # Drivers de navegador
 ├── requirements.txt             # Dependencias de Python
 ├── behave.ini                   # Configuración de Behave
+├── run_tests.bat                # Script automático para correr pruebas
+├── reporte.csv                  # Reporte generado tras cada ejecución
 └── README.md                    # Este archivo
 ```
 
@@ -58,6 +66,13 @@ behave --tags @login
 ```bash
 behave -v
 ```
+
+### Ejecutar con Script y Reporte Automático:
+A través del archivo batch incluido, puedes ejecutar todas las pruebas y generar el reporte final sin comandos complejos:
+```bash
+.\run_tests.bat
+```
+📌 **Nota**: Al finalizar las pruebas (sea con el script o usando behave directamente), el entorno generará en la raíz del proyecto un archivo `reporte.csv` con métricas clave para cada escenario testado (estado, duración, errores e infraestructura).
 
 ## Escribiendo Nuevas Pruebas
 
