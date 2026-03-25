@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pages.login_page import LoginPage
 from pages.register_page import RegisterPage
+from pages.blog_page import BlogPage
 from utils.csv_utils import get_user_by_index
 
 
