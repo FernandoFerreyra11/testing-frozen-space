@@ -5,7 +5,7 @@ Este proyecto proporciona una estructura completa para pruebas automatizadas de 
 ## Estructura del Proyecto
 
 ```
-frozenSpace/
+Testing Frozen Space/
 ├── features/                    # Archivos .feature con escenarios Gherkin
 │   ├── steps/                   # Implementaciones de los pasos en Python
 │   │   ├── __init__.py
