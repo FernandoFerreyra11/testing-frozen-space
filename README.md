@@ -36,6 +36,8 @@ Testing Frozen Space/
 
 - Python 3.8 o superior
 - Navegador web (Chrome recomendado)
+- **Repositorio Principal Corriendo**: Aclaración importante: este proyecto solo abarca la automatización de QA. Para que las pruebas funcionen y encuentren los selectores (`#blog-title`, `#login-btn`, etc.), **la aplicación Frozen Space debe estar en ejecución localmente**. Asegúrate de tener el [repositorio principal de Frozen Space] descargado y ejecutándose (frontend activo mediante Vite en `localhost:5173` y su API).
+- **Base de Datos (SQL Server)**: El backend principal interactúa localmente con Microsoft SQL Server mediante Autenticación de Windows. Recomendamos instalar *SQL Server Management Studio (SSMS)* o tu gestor favorito para correr los scripts de inicialización de la BD y poder monitorear los usuarios/posts que este framework de automatización va generando durante las pruebas.
 
 ## Instalación
 
