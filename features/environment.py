@@ -38,6 +38,9 @@ def before_all(context):
     register_csv_path = os.path.join(os.path.dirname(__file__), "register_users.csv")
     context.register_users = read_users_csv(register_csv_path)
 
+    demo_csv_path = os.path.join(os.path.dirname(__file__), "datos_demo.csv")
+    context.demo_users = read_users_csv(demo_csv_path)
+
     # Iniciar reporte de resultados
     context.test_results = []
 
